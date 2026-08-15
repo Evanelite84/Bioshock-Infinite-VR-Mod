@@ -151,24 +151,34 @@ Edit `bsi_controls.ini` — it reloads live. See the notes inside about which ax
 **Menus are hard to click.**
 The cursor fix is on by default. If it misbehaves, create `%TEMP%\bsi_cursor_scale_off.txt`.
 
+### The log tells you what actually happened
+
+`%TEMP%\BioshockInfiniteVR\mod.log` records what the mod really did — the FOV it computed, the
+resolution it asked for, the IPD it read from your headset, and every frame-pacing statistic. If
+something looks wrong, this is the first place to look rather than guessing.
+
+Useful lines to search for:
+
+| search for | tells you |
+|---|---|
+| `swapsize:` | what resolution it rendered at, and where that number came from |
+| `widefov:` | the FOV it computed from your headset, or the default it fell back to |
+| `viewconfig:` | what your runtime actually recommended |
+| `sanity:` | your desktop resolution and refresh — a low refresh reintroduces shake |
+| `pacing: beats` | whether your machine is keeping up. Lots of `missed` means it is not |
+
+⚠️ The log rotates per *install*, not per *launch*, so one file can hold several sessions. Find the
+last `xinput1_3 proxy attached` line and read from there down.
+
 ---
 
-## Reporting a bug
+## Bug reports
 
-The log is at `%TEMP%\BioshockInfiniteVR\mod.log`. It records what the mod actually did — the FOV it
-computed, the resolution it asked for, the IPD it read, and every frame-pacing statistic.
+**Not being taken right now, and issues are disabled on the repository.** This is a solo hobby project
+and the time goes into the mod rather than into a support queue. Nothing here is abandoned — it just
+isn't a supported release, and pretending otherwise would waste your time as much as mine.
 
-⚠️ It rotates per *deploy*, not per *launch*, so one file can hold several sessions. Find the last
-`xinput1_3 proxy attached` line and send from there down.
-
-Include:
-
-1. That section of the log
-2. Your headset and OpenXR runtime
-3. Your GPU (especially if NVIDIA — that is untested)
-4. Whether the runtime was running **before** the game started
-5. Whether the problem also appears on the monitor, or only in the headset — this one detail
-   separates whole classes of cause
+The known problems are listed above, honestly and in full. If you hit one of those, it is known.
 
 ---
 
