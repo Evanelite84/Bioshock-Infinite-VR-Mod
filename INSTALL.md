@@ -109,13 +109,15 @@ geometry gets displaced differently every frame, which is why it is worst on the
 The correction scales with render latency, so it is much smaller at lower resolution — a trade-off
 with a knob, not a mystery, but not solved either.
 
-**Two things on your end make it worse, and both are worth checking first:**
+**The one thing on your end that makes it worse:** a machine that cannot keep up. Look for
+`pacing: beats` in the log — a high `missed` count means frames are not arriving in time, and that
+reads as shake regardless of anything else. Lowering your headset's render resolution in your
+runtime's settings is the lever if so.
 
-- **A low desktop refresh rate.** Windowed presentation is composited at the *desktop* refresh, so a
-  60 Hz desktop reintroduces a head-rotation shake that is not the mod's doing. The mod logs a
-  warning when it sees this.
-- **A machine that cannot keep up.** Look for `pacing: beats` in the log. A high `missed` count means
-  frames are not arriving in time, and that reads as shake regardless of anything else.
+> **Ignore the mod's own "DESKTOP IS ONLY nn Hz" warning.** It is stale. The mod presents unsynced
+> from the desktop refresh and takes its timing from the headset instead, so your desktop refresh
+> rate does not affect what you see in the headset — only the flat mirror on your monitor, which can
+> judder while the headset is fine. Verified at 60 Hz with 353 of 356 frames on time.
 
 ### 🔴 Frame rate varies by scene
 
