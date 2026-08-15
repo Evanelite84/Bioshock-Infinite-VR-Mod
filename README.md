@@ -50,6 +50,21 @@ is the first thing you will notice. Frame rate also swings roughly 37–72 fps d
 and the HUD sits in the far corners of your vision. All of this is written up honestly in
 `INSTALL.md` rather than buried.
 
+## ⚖️ Use at your own risk
+
+This is unfinished software that hooks into a running game. **It is provided as-is, with no warranty
+of any kind** — see [LICENSE](LICENSE) for the formal version. If it crashes your game, corrupts a
+save, or does anything else you didn't want, that's on you for running an alpha, and I'm not liable
+for it.
+
+Nothing is installed system-wide and no game files are modified — it's one DLL sitting next to the
+executable, and deleting it puts everything back exactly as it was. But "low risk" isn't "no risk",
+and you should be comfortable with that before installing.
+
+**Not affiliated with, endorsed by, or connected to 2K Games, Irrational Games, or Take-Two
+Interactive.** BioShock and BioShock Infinite are trademarks of their respective owners. This is an
+unofficial fan project, built independently, and no game code or assets are redistributed.
+
 ## 📢 Communication
 
 This is a solo hobby project, and my priority is spending my limited time actually working on the mod.
