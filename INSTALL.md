@@ -63,8 +63,8 @@ Aiming follows your motion controller. Menus take the mouse or the gamepad.
 | X | use / items |
 | Y | melee |
 | Left stick click | sprint — **hold** it while already moving forward |
-| Right stick click | pause |
-| Select | menu |
+| Right stick click | Select |
+| Menu | pause |
 
 Everything is remappable in **`bsi_controls.ini`**, next to the DLL. It **reloads about once a
 second** — edit, alt-tab, test, no restart. The file documents every option inline, including the two
