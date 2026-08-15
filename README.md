@@ -29,7 +29,7 @@ There is now a **basic in-headset settings menu**, but it is **experimental and 
 
 I would **not recommend downloading this unless you are comfortable tinkering, changing settings, and troubleshooting things yourself**. There is currently no technical support or troubleshooting available.
 
-I also develop on an **AMD GPU** and have not had a chance to properly test the mod on NVIDIA hardware, so I cannot say how well it will currently run on NVIDIA GPUs.
+Development and testing happen almost entirely on **AMD hardware**. I have not been able to fully test on NVIDIA, but I have confirmed that the mod **boots and runs without crashing** on an NVIDIA GPU. How well it actually performs there is still an open question, so treat NVIDIA as **not fully tested** rather than unsupported.
 
 In short: **expect bugs, broken features, crashes, visual issues, unstable behavior, and general jank.** Getting the mod working properly may require some experimentation and manual adjustments on your end.
 
