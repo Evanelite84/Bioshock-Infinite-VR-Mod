@@ -1,12 +1,23 @@
-﻿# BioShock Infinite VR Mod (Project Placeholder)
+# BioShock Infinite VR Mod
 
-This repository serves as a public placeholder for an upcoming VR modification for **BioShock Infinite**.
+A native VR mod for **BioShock Infinite** — real stereo rendering, 6DoF head tracking, and
+motion-controller aim, injected at runtime with no game files modified.
+
+## 📦 Download
+
+The first alpha is available under [Releases](../../releases).
+
+**Read `INSTALL.md` inside the zip before installing.** Install is two files dropped into the game's
+`Binaries\Win32` folder, and deleting one of them uninstalls it completely.
+
+⚠️ **Launch the game twice the first time.** The first run renders at your monitor's resolution while
+the mod learns your headset's, and corrects itself from the second launch onward.
 
 ## 🛠️ Current Status
 
 **Development:** Active, but highly experimental.
 **Source Code:** Currently kept in a private repository while core features are being developed.
-**Release Timeline:** There is no fixed schedule or release date. It will be ready when it’s ready.
+**Release Timeline:** There is no fixed schedule or release date. It will be ready when it's ready.
 
 ### ⚠️ Important: Expect Things to Be Very Broken
 
@@ -14,13 +25,30 @@ This project is **very much a work in progress**. Many things are currently brok
 
 The game can also be **fairly unstable and shaky in VR** at the moment. Things like **FOV, resolution, camera settings, and other visual parameters may not be correct out of the box** and may require you to make your own adjustments to get things looking or feeling right for your setup.
 
-There are also currently **no dedicated VR menus or in-game settings for adjusting these things**. I haven't implemented a VR settings menu yet, so for the time being, **what you see is what you get**. If something looks wrong or doesn't feel right, you'll likely have to adjust it yourself using whatever settings or configuration options are currently available.
+There is now a **basic in-headset settings menu**, but it is **experimental and disabled by default** — see `INSTALL.md` if you want to turn it on. Turning style (smooth, snap, or off) and hiding the crosshair are the settings that have had real headset testing. Most other adjustments still have to be made by hand.
 
 I would **not recommend downloading this unless you are comfortable tinkering, changing settings, and troubleshooting things yourself**. There is currently no technical support or troubleshooting available.
 
 I also develop on an **AMD GPU** and have not had a chance to properly test the mod on NVIDIA hardware, so I cannot say how well it will currently run on NVIDIA GPUs.
 
 In short: **expect bugs, broken features, crashes, visual issues, unstable behavior, and general jank.** Getting the mod working properly may require some experimentation and manual adjustments on your end.
+
+### What actually works
+
+- Real stereo rendering — both eyes from one frame at one head pose, not a reprojection
+- 6DoF head tracking, including leaning
+- Motion-controller aim
+- FOV and per-eye resolution read from **your** headset, not hardcoded or tied to your monitor
+- Depth submitted to the compositor
+- Smooth, snap, or **no** turning — all three are proper options
+- Crosshair can be hidden
+
+### The big open one
+
+**The world shakes**, worst on nearby geometry and when you move your head. It has no fix yet and it
+is the first thing you will notice. Frame rate also swings roughly 37–72 fps depending on the area,
+and the HUD sits in the far corners of your vision. All of this is written up honestly in
+`INSTALL.md` rather than buried.
 
 ## 📢 Communication
 
