@@ -1,0 +1,45 @@
+MIT License
+
+Copyright (c) 2026 the BioShock Infinite VR contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---------------------------------------------------------------------------
+WHAT THIS COVERS, AND WHAT IT DOES NOT
+
+This licence covers THIS MOD'S OWN SOURCE CODE and documentation only.
+
+It does NOT cover, and cannot grant any rights to:
+
+  * BioShock Infinite itself, its engine, assets, or any of its data. Those
+    belong to their respective owners. You need your own legally obtained copy
+    of the game for this mod to be of any use.
+
+  * Screenshots of the game included in this repository for documentation.
+    They depict copyrighted material and are included for the purpose of
+    describing and illustrating the mod's behaviour.
+
+  * The memory addresses and structure offsets referenced throughout the
+    source. These are factual observations about how a particular build lays
+    out its data, recorded so the mod can find what it needs at runtime. No
+    game code is reproduced here.
+
+NO GAME FILES ARE MODIFIED OR REDISTRIBUTED. The mod ships as a proxy DLL that
+loads alongside the process and forwards every real call to the system library.
+Deleting that one file uninstalls it completely.

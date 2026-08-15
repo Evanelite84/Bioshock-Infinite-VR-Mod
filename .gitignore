@@ -1,0 +1,40 @@
+# Build output -- regenerable from source via CMake.
+build/
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.obj
+
+# Deployed/backup binaries. Kept on disk deliberately (they are the only pre-git
+# history) but not tracked -- they are snapshots, not sequential commits.
+*.dll
+KNOWN_GOOD_COMPONENTS/
+AER_WORKING_BACKUP_*/
+aer_deployed_dll_backup_*/
+deployed_dll_backup_*/
+deployed_dll_history/
+src_backup_*/
+
+# Third-party tooling and game-derived data. Not ours, and large.
+tools/packages/
+tools/decompiler/
+tools/disasm/
+tools/ue-explorer/
+tools/*.CT
+**/bin/
+**/obj/
+
+# shake-bisect saves the pre-bisect marker state here; local, not history.
+shake-bisect-original/
+bisect_park/
+
+# kg.ps1 state snapshots - artefacts, like deployed_dll_history. The commits are the history.
+known_good_snapshots/
+
+# Raw dev chat transcripts. Kept locally, deliberately NOT published:
+# they are unfiltered working conversation, including discussion of another
+# developer's mod. Purged from history 2026-08-14.
+FULL_CHAT.txt
+chat_transcript_*.txt
+conversation_only.txt
