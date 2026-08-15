@@ -14,7 +14,7 @@
 | **Runtime** | Any OpenXR runtime. Developed against **VDXR** (Virtual Desktop) |
 | **Headset** | Any OpenXR headset — FOV and per-eye resolution are read from your runtime, not hardcoded |
 | **Controllers** | Motion controllers, presented to the game as a gamepad. Mouse + keyboard also work |
-| **GPU** | Developed on **AMD**. Untested on NVIDIA — reports welcome |
+| **GPU** | Developed on **AMD**. Confirmed to boot and run on NVIDIA, but not fully tested there |
 
 ---
 
@@ -99,13 +99,23 @@ Stated plainly. These are bugs, not "limitations of VR retrofits".
 The world shakes, worst on nearby geometry and when you move your head. **This is the top open
 defect and it has no fix.** It is intermittent and varies in severity.
 
-Ruled out by measurement, so please don't report these as the cause: frame delivery (zero missed
-beats and zero repeated frames through confirmed-bad periods), the stereo separation, the second
-render, the pose tagging, or a partially-filled render buffer.
+Already ruled out by measurement: frame delivery (zero missed beats and zero repeated frames through
+confirmed-bad periods), the stereo separation, the second render, the pose tagging, and a
+partially-filled render buffer.
 
-**Before reporting shake, check your desktop is not at 60 Hz.** Windowed presentation is composited
-at the *desktop* refresh, and a 60 Hz desktop reintroduces a head-rotation shake that is not the
-mod's doing. The mod logs a warning when it detects this.
+What it *is*, measured: the compositor has to warp each frame to match where your head has moved to
+by the time it reaches your eyes, and **the amount of that correction varies frame to frame**. Near
+geometry gets displaced differently every frame, which is why it is worst on the gun and close walls.
+The correction scales with render latency, so it is much smaller at lower resolution — a trade-off
+with a knob, not a mystery, but not solved either.
+
+**Two things on your end make it worse, and both are worth checking first:**
+
+- **A low desktop refresh rate.** Windowed presentation is composited at the *desktop* refresh, so a
+  60 Hz desktop reintroduces a head-rotation shake that is not the mod's doing. The mod logs a
+  warning when it sees this.
+- **A machine that cannot keep up.** Look for `pacing: beats` in the log. A high `missed` count means
+  frames are not arriving in time, and that reads as shake regardless of anything else.
 
 ### 🔴 Frame rate varies by scene
 
