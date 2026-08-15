@@ -43,10 +43,18 @@ the game has already created its render target. So the first run measures your h
 
 So: **launch, quit, launch again.** From then on it is correct, and you never think about it again.
 
-### Launch order matters
+### If your runtime starts late, that's fine
 
-Start the headset runtime **before** the game, every time. If the game starts first the mod logs
-`xrGetSystem failed` and falls back to a flat default FOV until a runtime appears.
+Starting the headset runtime **before** the game is still the recommended order. But if you launch
+first and connect afterwards, the mod now **waits up to 5 minutes for a headset to appear** and picks
+it up automatically — no relaunch needed. You'll see it in the log:
+
+```
+openxr: no headset available yet -- waiting. Attempt 1; connect your VR runtime and it will pick up automatically.
+openxr: headset appeared after 8 retries (~16 s of waiting) -- continuing init
+```
+
+If no headset ever shows up, it gives up after about five minutes and the game just carries on flat.
 
 ---
 
@@ -150,12 +158,14 @@ Comfort vignette · motion gestures (reload, melee, grab).
 ## Troubleshooting
 
 **Headset is black, monitor looks fine.**
-The runtime was not up when the game launched. Close the game, start the runtime, launch again.
+Connect your runtime — the mod waits up to 5 minutes for a headset and will pick it up without a
+relaunch. If it has been longer than that, quit and start again with the runtime already running.
 
 **Everything looks washed out, flat, or wrongly scaled.**
-Usually the runtime started after the game, so FOV fell back to a compiled default instead of being
-computed from your headset. Relaunch with the runtime already running. If this is your *first ever*
-launch, see [Launch it twice](#-launch-it-twice-the-first-time).
+If this is your *first ever* launch, that is expected — see
+[Launch it twice](#-launch-it-twice-the-first-time). Otherwise check the log for `widefov:`; if it
+says *compiled default* rather than *computed from the headset's own FOV*, the mod never got a
+headset and the flat fallback is what you are looking at.
 
 **Controllers do nothing, or the wrong stick moves you.**
 Edit `bsi_controls.ini` — it reloads live. See the notes inside about which axes this game reads.
