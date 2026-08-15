@@ -83,18 +83,31 @@ problems that come up most:
 
 ### Turning
 
-Snap, smooth, or **off** — all three are first-class choices. Snap makes some people motion sick,
-smooth makes others, and some players would rather turn with their body.
+**Out of the box you get snap turning at 45° per flick.** Smooth and off both exist and are proper
+first-class options — snap makes some people motion sick, smooth makes others, and some players would
+rather turn with their body — but **changing between them currently requires the in-headset menu**,
+which is disabled by default (see below).
+
+So in this alpha, turning is effectively fixed at snap 45° unless you enable the menu. That is a real
+limitation, not an oversight, and it is the main thing this build cannot yet configure.
 
 ### In-headset settings menu — experimental, OFF by default
 
-Create `%TEMP%\bsi_menu_on.txt` to enable it. It works, but it has not had enough headset time to be
-trusted on by default, and a settings panel that breaks a game is worse than no settings panel.
+Create `%TEMP%\bsi_menu_on.txt` to enable it.
+
+⚠️ **It is off for a reason: it has crashed the game.** It uploads its texture on the wrong thread,
+which twice caused a D3D11 device removal — the game dies on the spot. The cause is understood and
+fixable, but it is not fixed yet, so this is genuinely "enable at your own risk" rather than routine
+caution.
 
 **Click both thumbsticks in** to open it. Left stick moves, **A** selects, **B** closes. While it is
 open the game receives a neutral gamepad, so navigating does not also walk, shoot or swap weapons.
 
-Settings save to `bsi_vr_settings.ini` beside the DLL.
+Settings save to `bsi_vr_settings.ini` beside the DLL — but note that file is **only read when the
+menu is enabled**, so editing it by hand while the menu is off does nothing.
+
+**Consequence for this alpha:** apart from controller mapping, which is a live-reloading text file,
+there is currently no supported way to change any setting. That is the honest state of it.
 
 ---
 
